@@ -1,66 +1,142 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# **Public API - Public API Gopher**
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## **📌 Project Overview**
+This is a **public API** built with **Laravel** that provides basic information in JSON format. It is developed as part of **HNG12 Internship - Stage 0** and serves the following details when accessed via a `GET` request:
 
-## About Laravel
+- **Your registered email address** (used to register on the HNG12 Slack workspace).
+- **The current datetime** in ISO 8601 format.
+- **The GitHub repository URL** of the project's codebase.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## **🚀 Features**
+- A **RESTful API** that returns basic details.
+- Uses **Laravel** as the backend framework.
+- Follows **best practices** for API development.
+- **CORS support** enabled for external access.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## **📂 Project Structure**
+```
+/app
+   ├── Http
+   │   ├── Controllers
+   │   │   ├── Api
+   │   │   │   ├── InfoController.php  # Handles the API response
+/config
+   ├── cors.php  # Configures CORS settings
+/routes
+   ├── api.php  # Defines API routes
+/public
+   ├── index.php  # Entry point for the API
+README.md  # Documentation
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## **⚙️ Setup Instructions**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### **1️⃣ Clone the Repository**
+```sh
+git clone https://github.com/Boluwatife01-bea/hng_gopher.git
+cd your-repo
+```
 
-## Laravel Sponsors
+### **2️⃣ Install Dependencies**
+Make sure **Composer** is installed, then run:
+```sh
+composer install
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### **3️⃣ Configure Environment**
+Duplicate `.env.example` and rename it to `.env`, then update necessary settings:
+```sh
+cp .env.example .env
+```
+Then generate an application key:
+```sh
+php artisan key:generate
+```
 
-### Premium Partners
+### **4️⃣ Start the Laravel Development Server**
+```sh
+php artisan serve
+```
+Your API will be available at:
+```
+http://127.0.0.1:8000/api/info
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+## **📡 API Documentation**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### **🔹 Endpoint URL**
+```sh
+GET /api/info
+```
+- **Base URL:** `https://apigopher.olivesupermart.com.ng/api/info`
 
-## Code of Conduct
+### **🔹 Request Format**
+- **Method:** `GET`
+- **Headers:** `Accept: application/json`
+- **Authentication:** `None (Public API)`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### **🔹 JSON Response Format (200 OK)**
+```json
+{
+  "email": "bolufunmiluyi@gmail.com",
+  "current_datetime": "2025-01-30T09:30:00Z",
+  "github_url": "https://github.com/Boluwatife01-bea/hng_gopher"
+}
+```
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## **🛠️ Example Usage**
 
-## License
+### **Using cURL**
+```sh
+curl -X GET https://apigopher.olivesupermart.com.ng/api/info -H "Accept: application/json"
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### **Using JavaScript Fetch**
+```js
+fetch('https://apigopher.olivesupermart.com.ng/api/info')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+```
+
+### **Using Postman**
+1. Open **Postman**.
+2. Set the **Method** to `GET`.
+3. Enter the **URL**: `https://apigopher.olivesupermart.com.ng/api/info`
+4. Click **Send** and view the JSON response.
+
+---
+
+## **🔗 Useful Links**
+- **GitHub Repository:** [your-repo](https://github.com/Boluwatife01-bea/hng_gopher)
+- **HNG12 Internship:** [hng.tech](https://hng.tech)
+
+---
+
+## **👨‍💻 Hiring Developers?**
+Looking for skilled developers? Check out:
+- [Hire Python Developers](https://hng.tech/hire/python-developers)
+- [Hire C# Developers](https://hng.tech/hire/csharp-developers)
+- [Hire Golang Developers](https://hng.tech/hire/golang-developers)
+- [Hire PHP Developers](https://hng.tech/hire/php-developers)
+- [Hire Java Developers](https://hng.tech/hire/java-developers)
+- [Hire Node.js Developers](https://hng.tech/hire/nodejs-developers)
+
+---
+
+## **📜 License**
+This project is open-source and available under the **MIT License**.
+
+---
+
+This README provides **clear documentation**, making it easy for others to understand, set up, and use your API. Let me know if you need modifications! 🚀
