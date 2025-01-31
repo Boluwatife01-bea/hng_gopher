@@ -10,10 +10,13 @@ class InfoController extends Controller
 {
     public function show()
     {
-        return response()->json([
-            'email' => 'osadiayesolomon@gmail.com', // change email to the one used to register on the HNG12 Slack workspace
+       $data = [
+            'email' => 'bolufunmiluyi@gmail.com',
             'current_datetime' => Carbon::now('UTC')->format('Y-m-d\TH:i:s\Z'),
-            'github_url' => 'https://github.com/yourusername/your-repo'
-        ]);
+            'github_url' => 'https://github.com/Boluwatife01-bea/hng_gopher'
+        ];
+        
+        return response(json_encode($data, JSON_UNESCAPED_SLASHES))
+            ->header('Content-Type', 'application/json');
     }
 }
