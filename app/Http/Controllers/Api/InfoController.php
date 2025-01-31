@@ -12,7 +12,7 @@ class InfoController extends Controller
     {
         return response()->json([
             'email' => 'osadiayesolomon@gmail.com', // change email to the one used to register on the HNG12 Slack workspace
-            'current_datetime' => Carbon::now()->toIso8601String(),
+            'current_datetime' => Carbon::now('UTC')->format('Y-m-d\TH:i:s\Z'),
             'github_url' => 'https://github.com/yourusername/your-repo'
         ]);
     }
