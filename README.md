@@ -137,6 +137,3 @@ Looking for skilled developers? Check out:
 ## **📜 License**
 This project is open-source and available under the **MIT License**.
 
----
-
-This README provides **clear documentation**, making it easy for others to understand, set up, and use your API. Let me know if you need modifications! 🚀
